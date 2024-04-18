@@ -1,13 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MaxContainer from "./MaxContainer";
 import Image from "next/image";
 import Link from "next/link";
 import { AtSign } from "lucide-react";
 
 const Banner = () => {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
+  const [status, setStatus] = useState("")
+
+  useEffect(() => {
+    const updateStatus = () => {
+      const now = new Date();
+      const dayOfWeek = now.getDay();
+      const hour = new Date().getHours();
+
+      if (dayOfWeek >= 1 && dayOfWeek <= 5 && hour >= 5 && hour < 15) {
+        setStatus("Coding now");
+      } else {
+        setStatus("Available");
+      }
+    };
+
+    updateStatus(); // Chame a função updateStatus uma vez para definir o status inicial
+
+    const interval = setInterval(updateStatus, 60 * 60 * 1000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="w-full lg:h-[239px] py-10 lg:py-0 border-b bg-secondary flex flex-col lg:justify-end">
       <MaxContainer className="flex items-center flex-col lg:flex-row gap-4 lg:gap-8">
@@ -40,15 +61,24 @@ const Banner = () => {
             Aleksander Palamar
           </h1>
           <div className="flex items-center justify-center gap-x-5 gap-y-2 flex-wrap">
-            <p className="flex items-center text-green-500 text-xs font-semibold uppercase tracking-widest">
-              <span className="h-2.5 w-2.5 bg-green-500 rounded-full mr-1 flex justify-center items-center animation-pulse"></span>{" "}
-              Available for work
-            </p>
-            <Link 
+            {status === "Available" ? (
+              <p className="flex items-center text-emerald-500 text-xs font-semibold uppercase tracking-widest">
+                <span className="h-2.5 w-2.5 bg-emerald-500 rounded-full mr-1 flex justify-center items-center animation-pulse"
+                />
+                Available
+              </p>
+            ) : (
+              <p className="flex items-center text-rose-500 text-xs font-semibold uppercase tracking-widest">
+                <span className="h-2.5 w-2.5 bg-rose-500 rounded-full mr-1 flex justify-center items-center animation-pulse"
+                />
+                Coding now
+              </p>
+            )}
+            <Link
               href="tel:+5541987938328"
               className="flex items-center text-muted-foreground text-xs font-semibold uppercase tracking-widest"
             >
-              <AtSign className="w-3 h-3 mr-1.5"/>
+              <AtSign className="w-3 h-3 mr-1.5" />
               Lets Talk
             </Link>
           </div>
