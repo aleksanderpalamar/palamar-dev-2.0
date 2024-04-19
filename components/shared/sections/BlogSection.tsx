@@ -1,42 +1,45 @@
-import { ArrowRight, ScrollText } from "lucide-react";
+import Link from "next/link";
+import { FaBookReader } from "react-icons/fa";
+import { ArrowRight } from "lucide-react";
+
 import Heading from "../Heading";
 import MaxContainer from "../MaxContainer";
-import { useFetchOnlyTwoProjects } from "@/hooks";
-import { LoadingProject } from "../LoadingProject";
 import { ErrorCard } from "../cards/ErrorCard";
-import { ProjectCard } from "../cards/ProjectCard";
-import Link from "next/link";
+import { ArticleCard } from "../cards/BlogCard";
+import { LoadingProject } from "../LoadingProject";
 import { buttonVariants } from "@/components/ui/button";
 
-const ProjectSection = () => {
-  const { isLoading, isError, projects } = useFetchOnlyTwoProjects()
+import { useFetchOnlyOneArticle } from "@/hooks";
+
+const BlogSection = () => {
+  const { isLoading, isError, articles } = useFetchOnlyOneArticle()
   return (
     <MaxContainer className="flex flex-col lg:flex-row items-start gap-4 lg:gap-8 pt-10 lg:pt-20">
-      <Heading text="Projects" icon={ScrollText}/>
+      <Heading text="Latest Updates" icon={FaBookReader} />
       <div className="flex-1 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {isLoading ? (
+          {isLoading ? (
             Array.from({ length: 2 }).map((_, _key) => (
               <LoadingProject key={_key} />
             ))
           ) : isError ? (
             <ErrorCard message={isError} />
           ) : (
-            projects.map((project: any) => (
-              <ProjectCard key={project._id} {...project} />
+            articles.map((article: any) => (
+              <ArticleCard key={article._id} {...article} />
             ))
           )}
         </div>
         {!isLoading && (
           <div className="flex justify-end mt-4">
             <Link
-              href="/projects"
+              href="/blog"
               className={buttonVariants({
                 size: "sm",
                 variant: "primary",
                 className: "border",
               })}>
-              View More Projects
+              View More Articles
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
@@ -46,4 +49,4 @@ const ProjectSection = () => {
   )
 }
 
-export default ProjectSection;
+export default BlogSection;

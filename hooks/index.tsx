@@ -3,6 +3,39 @@
 import { useEffect, useState } from "react";
 import { client } from "@/constants/client";
 
+
+export const useFetchAllArticles = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<string>("");
+  const [articles, setArticles] = useState<Articles[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const query = `*[_type == "article"] | order(_createdAt desc)[0...2] {
+          _id,
+          "slug": slug.current,
+          title,
+          description,
+          createdAt,
+          tags,
+          "banner": banner.asset->url
+        }`;
+        const data: Articles[] = await client.fetch(query);
+        setArticles(data);
+      } catch (error: any) {
+        setIsError(error.message || "An error occurred while fetching data.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { isLoading, isError, articles };
+};
+
 export const useFetchAllProjects = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<string>("");
@@ -71,6 +104,38 @@ export const useFetchOnlyTwoProjects = () => {
   return { isLoading, isError, projects };
 };
 
+export const useFetchOnlyOneArticle = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<string>("");
+  const [articles, setArticles] = useState<Articles[]>([]); 
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const query = `*[_type == "article"] | order(_createdAt desc)[0...2] {
+          _id,
+          "slug": slug.current,
+          title,
+          description,
+          createdAt,
+          tags,
+          "banner": banner.asset->url
+        }`;        
+        const data: Articles[] = await client.fetch(query);
+        setArticles(data);
+      } catch (error: any) {
+        setIsError(error.message || "An error occurred while fetching data.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { isLoading, isError, articles };
+}
+
 export const useFetchProjectDetails = (slug: string) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<string>("");
@@ -105,6 +170,40 @@ export const useFetchProjectDetails = (slug: string) => {
 
   return { isLoading, isError, projects };
 };
+
+export const useFetchArticleDetails = (slug: string) => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<string>("");
+  const [articles, setArticles] = useState<Articles>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const query = `*[_type == "article" && slug.current == "${slug}"][0] {
+          _id,
+          "slug": slug.current,
+          title,
+          description,
+          createdAt,
+          tags,
+          "banner": banner.asset->url
+          content,
+        }`;
+        const data: Articles = await client.fetch(query);
+
+        setArticles(data);
+      } catch (error: any) {
+        setIsError(error.message || "An error occurred while fetching data.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [slug]);
+
+  return { isLoading, isError, articles };
+}
 
 export const useFetchAllEducations = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);

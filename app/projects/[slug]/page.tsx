@@ -18,33 +18,32 @@ import { formatDateAndTime } from "@/lib/utils";
 const ProjectDetails = ({
   params
 }: {
-  params: { slug: string}
+  params: { slug: string }
 }) => {
   const { isLoading, projects } = useFetchProjectDetails(params.slug);
   const liveSiteDomain = projects?.domains?.find(
     (domain: any) => domain.label === "Live Site"
   );
 
-  const colorIcon = `${
-    projects?.status?.toLowerCase() === "production"
+  const colorIcon = `${projects?.status?.toLowerCase() === "production"
       ? "text-emerald-500"
       : projects?.status?.toLowerCase() === "development"
-      ? "text-orange-500"
-      : projects?.status?.toLowerCase() === "issues" && "text-orange-500"
-  }`
+        ? "text-orange-500"
+        : projects?.status?.toLowerCase() === "issues" && "text-orange-500"
+    }`
 
-  const statusIcon = 
-  projects?.status?.toLowerCase() === "production"
-  ? CheckCircle
-  : projects?.status?.toLowerCase() === "development"
-  ? Terminal
-  : projects?.status?.toLowerCase() === "issues" && AlertOctagon;
+  const statusIcon =
+    projects?.status?.toLowerCase() === "production"
+      ? CheckCircle
+      : projects?.status?.toLowerCase() === "development"
+        ? Terminal
+        : projects?.status?.toLowerCase() === "issues" && AlertOctagon;
 
   return (
     <MaxContainer className="pt-6 pb-20 space-y-6">
       <GoBack route="/projects" />
       <div className="flex flex-col gap-2">
-      {isLoading ? (
+        {isLoading ? (
           <Skeleton className="w-full aspect-[1.3] h-auto lg:h-[500px] lg:aspect-auto rounded-xl mb-2 lg:mb-4" />
         ) : (
           <div className="w-full aspect-[1.3] h-auto lg:h-[500px] lg:aspect-auto bg-secondary rounded-xl border mb-2 lg:mb-4 overflow-hidden relative">
@@ -62,7 +61,7 @@ const ProjectDetails = ({
           </div>
         )}
 
-<div className="flex flex-col">
+        <div className="flex flex-col">
           <div className="flex flex-col lg:flex-row items-start gap-2 lg:gap-4 pb-4">
             <Heading text="Name" icon={Folder} color="text-blue-400" />
             <div className="flex flex-col gap-3 flex-1">
@@ -110,15 +109,15 @@ const ProjectDetails = ({
             <div className="flex flex-wrap gap-2 flex-1">
               {isLoading
                 ? Array.from({ length: 5 }).map((_, _key) => (
-                    <Skeleton className="h-5 w-16 rounded" key={_key} />
-                  ))
+                  <Skeleton className="h-5 w-16 rounded" key={_key} />
+                ))
                 : projects?.technologies?.map((technology: string) => (
-                    <p
-                      className="text-[10px] md:text-xs font-semibold bg-secondary py-1 px-2 rounded uppercase tracking-widest"
-                      key={technology}>
-                      {technology}
-                    </p>
-                  ))}
+                  <p
+                    className="text-[10px] md:text-xs font-semibold bg-secondary py-1 px-2 rounded uppercase tracking-widest"
+                    key={technology}>
+                    {technology}
+                  </p>
+                ))}
             </div>
           </div>
 
