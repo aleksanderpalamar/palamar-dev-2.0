@@ -18,5 +18,5 @@ interface Articles {
   createdAt?: string;
   tags?: string[];
   banner?: string;
-  content?: string[];
+  contents?: string[];
 }

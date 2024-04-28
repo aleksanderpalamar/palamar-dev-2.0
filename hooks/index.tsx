@@ -186,19 +186,21 @@ export const useFetchArticleDetails = (slug: string) => {
           description,
           createdAt,
           tags,
-          "banner": banner.asset->url
-          content,
+          "banner": banner.asset->url,
+          contents
         }`;
+        console.log("Query:", query);
         const data: Articles = await client.fetch(query);
-
-        setArticles(data);
+        console.log("Data:", data);
+        setArticles(data);        
       } catch (error: any) {
+        console.error("Ocorreu um erro ao buscar os detalhes do artigo:", error);
         setIsError(error.message || "An error occurred while fetching data.");
       } finally {
         setIsLoading(false);
       }
     };
-
+    console.log('Slug:', slug);
     fetchData();
   }, [slug]);
 

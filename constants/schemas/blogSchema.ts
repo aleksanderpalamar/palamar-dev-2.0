@@ -15,7 +15,7 @@ export default defineType({
       title: "Slug",
       type: "slug",
       options: {
-        source: "name",
+        source: "title",
         maxLength: 96,
       },
     }),
@@ -48,7 +48,7 @@ export default defineType({
       name: "contents",
       title: "Contents",
       type: "array",
-      of: [{ type: "block" }],      
+      of: [{ type: "block" }],     
     }),
   ],
 });

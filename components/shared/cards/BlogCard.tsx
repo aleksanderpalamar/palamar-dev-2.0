@@ -16,7 +16,7 @@ export const ArticleCard = ({
 }: ArticleCardProps) => {
   return (
     <Link
-      href={`/blog/${slug}`}
+      href={`/articles/${slug}`}
       className="border rounded-xl overflow-hidden shadow-2xl bg-secondary group p-3"
     >
       <div className="aspect-[1.5] overflow-hidden group bg-background rounded-xl border p-1.5">

@@ -33,7 +33,7 @@ const BlogSection = () => {
         {!isLoading && (
           <div className="flex justify-end mt-4">
             <Link
-              href="/blog"
+              href="/articles"
               className={buttonVariants({
                 size: "sm",
                 variant: "primary",

@@ -8,8 +8,9 @@ import MaxContainer from "@/components/shared/MaxContainer";
 import { useFetchAllArticles } from "@/hooks";
 import { Loader2, ScrollText } from "lucide-react";
 
-const BlogPage = () => {
+const ArticlePage = () => {
   const { isLoading, isError, articles } = useFetchAllArticles()
+  console.log(articles)
   return (
     <MaxContainer className="pb-12">
       <div className="flex items-center justify-between sticky top-0 z-10 py-6 bg-background">
@@ -45,4 +46,4 @@ const BlogPage = () => {
   )
 }
 
-export default BlogPage;
+export default ArticlePage;
