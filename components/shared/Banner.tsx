@@ -20,7 +20,7 @@ const Banner = () => {
         setStatus("Coding now");
       } else {
         setStatus("Available");
-      }
+      } 
     };
 
     updateStatus(); // Chame a função updateStatus uma vez para definir o status inicial
@@ -71,7 +71,7 @@ const Banner = () => {
               <p className="flex items-center text-rose-500 text-xs font-semibold uppercase tracking-widest">
                 <span className="h-2.5 w-2.5 bg-rose-500 rounded-full mr-1 flex justify-center items-center animation-pulse"
                 />
-                Coding now
+                Working now
               </p>
             )}
             <Link
