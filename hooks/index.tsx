@@ -12,7 +12,7 @@ export const useFetchAllArticles = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const query = `*[_type == "article"] | order(_createdAt desc)[0...2] {
+        const query = `*[_type == "article"] | order(_createdAt desc) {
           _id,
           "slug": slug.current,
           title,
