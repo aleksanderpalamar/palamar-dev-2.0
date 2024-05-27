@@ -34,7 +34,7 @@ export const ProjectCard = ({
       </div>
       <div className="gap-1 flex flex-col mt-2.5">
       <h2 className="text-foreground font-medium text-sm line-clamp-1">
-          Name: {name}
+          {name}
         </h2>
         {description && (
           <p className="text-xs text-muted-foreground line-clamp-1">
