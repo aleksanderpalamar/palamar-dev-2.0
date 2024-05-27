@@ -19,8 +19,8 @@ export default function Home() {
       <AboutSection />
       <ProjectSection />
       <BlogSection />
-      <BackgroundSection type="edu" data={educations}/>
-      <BackgroundSection type="exp" data={experience}/>
+      {/*<BackgroundSection type="edu" data={educations}/>*/}
+      {/*<BackgroundSection type="exp" data={experience}/>*/}
       <ContactSection />
       <Footer />
     </div>
