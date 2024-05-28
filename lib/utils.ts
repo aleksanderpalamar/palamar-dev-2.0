@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from "clsx"
 import { Mail, Smartphone } from "lucide-react";
-import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { FiGithub } from "react-icons/fi";
+import { FaDev, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FiCode, FiGithub } from "react-icons/fi";
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
@@ -75,6 +75,13 @@ export const links = [
     path: "https://github.com/aleksanderpalamar",
     target: true,
     icon: FiGithub
+  },
+  {
+    name: "Dev.to",
+    text: "Aleksander Palamar",
+    path: "https://dev.to/aleksanderpalamar",
+    target: true,
+    icon: FaDev
   },
   {
     name: "Twitter",
