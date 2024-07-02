@@ -3,10 +3,7 @@ import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger 
 import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 
-
 const Preview = ({ url }: { url: any }) => {
-  
-
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
