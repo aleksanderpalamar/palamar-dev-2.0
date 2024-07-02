@@ -12,8 +12,14 @@ import {
 import { Download } from "lucide-react";
 
 export const ButtonAboutMe = () => {
-  const downloadCV = () => {
-    window.open("/cv/cv.pdf", "_blank");
+  const handleDownload = () => {
+    const a = document.createElement("a");
+    a.href = "/cv/cv.pdf"; // Endereço do arquivo para download
+    a.download = "CV.pdf"; // Nome do arquivo para download (opcional)
+    a.target = "_blank";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
   return (
     <>
@@ -43,18 +49,19 @@ export const ButtonAboutMe = () => {
               Next.js, Redux e React, entre outras.
             </p>
             <p className="text-sm">
-              Sou um forte defensor da aprendizagem contínua e melhoria. 
-              Gosto de me manter atualizado com as últimas tendências e tecnologias, 
-              e estou sempre procurando por novos jeitos de melhorar minhas habilidades e conhecimentos. 
-              Sou comprometido a ser um ativo na comunidade de desenvolvimento de software e contribuir 
+              Sou um forte defensor da aprendizagem contínua e melhoria.
+              Gosto de me manter atualizado com as últimas tendências e tecnologias,
+              e estou sempre procurando por novos jeitos de melhorar minhas habilidades e conhecimentos.
+              Sou comprometido a ser um ativo na comunidade de desenvolvimento de software e contribuir
               para o crescimento e sucesso da indústria.
             </p>
           </DialogDescription>
           <DialogFooter>
-            <Button variant="ghost" size="sm">
-              <Download
-                onClick={downloadCV}
-                className="mr-2 h-4 w-4" 
+            <Button 
+              onClick={handleDownload}
+              variant="ghost" size="sm"
+            >
+              <Download className="mr-2 h-4 w-4"
               />
               CV (PDF)
             </Button>
