@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import MaxContainer from "./MaxContainer";
 import Image from "next/image";
-import Link from "next/link";
-import { AtSign } from "lucide-react";
+import { ButtonLetsTalk } from "../ui/button-letstalk";
 
 const Banner = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -57,8 +56,11 @@ const Banner = () => {
           />
         </div>
         <div className="flex flex-col items-center lg:items-start gap-1 md:gap-2 flex-1">
-          <h1 className="text-xl md:text-2xl font-semibold uppercase tracking-widest">
+          <h1 className="flex flex-col text-xl md:text-2xl font-semibold uppercase tracking-widest">
             Aleksander Palamar
+            <span
+              className="text-xs text-muted-foreground font-semibold uppercase tracking-widest"
+            >FullStack Developer</span>
           </h1>
           <div className="flex items-center justify-center gap-x-5 gap-y-2 flex-wrap">
             {status === "Available" ? (
@@ -74,13 +76,7 @@ const Banner = () => {
                 Working now
               </p>
             )}
-            <Link
-              href="tel:+5541987938328"
-              className="flex items-center text-muted-foreground text-xs font-semibold uppercase tracking-widest"
-            >
-              <AtSign className="w-3 h-3 mr-1.5" />
-              Lets Talk
-            </Link>
+            <ButtonLetsTalk />
           </div>
         </div>
       </MaxContainer>

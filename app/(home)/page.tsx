@@ -18,7 +18,7 @@ export default function Home() {
       <Banner />
       <AboutSection />
       <ProjectSection />
-      <BlogSection />
+      {/*<BlogSection />*/}
       {/*<BackgroundSection type="edu" data={educations}/>*/}
       {/*<BackgroundSection type="exp" data={experience}/>*/}
       <ContactSection />
