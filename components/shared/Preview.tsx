@@ -1,7 +1,6 @@
 import { Fullscreen, X } from "lucide-react";
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger } from "../ui/alert-dialog";
 import { Button } from "../ui/button";
-import { useEffect, useState } from "react";
 
 const Preview = ({ url }: { url: any }) => {
   return (
@@ -21,19 +20,13 @@ const Preview = ({ url }: { url: any }) => {
             className="rounded-full absolute top-4 right-4 min-w-10 min-h-10 p-2 cursor-pointer">
             <X className="w-5 h-5 bg-rose-500/10 text-rose-500 border-none hover:bg-rose-500" />
           </AlertDialogCancel>
-          {error ? (
-            <div className="flex items-center justify-center w-full h-full text-rose-500">
-              {error}
-            </div>
-          ) : (
-            <iframe
+          <iframe
             className="w-full h-full"
             src={url.url}
             title="Preview"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-          )}
         </div>
       </AlertDialogContent>
     </AlertDialog>

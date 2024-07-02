@@ -8,12 +8,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 import { useFetchProjectDetails } from "@/hooks";
 import { AlertOctagon, CheckCircle, Clock, FileSymlink, Folder, FolderPen, Layers, Link2, List, ListCollapse, Terminal } from "lucide-react";
-import Preview from "@/components/shared/Preview";
+
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { buttonVariants } from "@/components/ui/button";
 import Heading from "@/components/shared/Heading";
 import { formatDateAndTime } from "@/lib/utils";
+import Preview from "@/components/shared/Preview";
 
 const ProjectDetails = ({
   params
