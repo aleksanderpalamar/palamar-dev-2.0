@@ -4,10 +4,17 @@ import { useEffect, useState } from "react";
 import MaxContainer from "./MaxContainer";
 import Image from "next/image";
 import { ButtonLetsTalk } from "../ui/button-letstalk";
+import { Switch } from "../ui/switch";
+import { Label } from "../ui/label";
+import { useLanguage } from "@/context/LanguageContext";
+import { getText } from "@/utils/changeLanguage";
 
 const Banner = () => {
+  const { language, toggleLanguage } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
   const [status, setStatus] = useState("")
+
+  const text = getText(language)
 
   useEffect(() => {
     const updateStatus = () => {
@@ -19,7 +26,7 @@ const Banner = () => {
         setStatus("Coding now");
       } else {
         setStatus("Available");
-      } 
+      }
     };
 
     updateStatus(); // Chame a função updateStatus uma vez para definir o status inicial
@@ -46,7 +53,7 @@ const Banner = () => {
             style={{ opacity: isHovered ? 0 : 1 }}
           />
           <Image
-            src="/images/favicon.png"
+            src="/images/avatar.jpg"
             alt="Aleksander Palamar"
             priority
             width={150}
@@ -60,7 +67,7 @@ const Banner = () => {
             Aleksander Palamar
             <span
               className="text-xs text-muted-foreground font-semibold uppercase tracking-widest"
-            >FullStack Developer</span>
+            >{text.banner?.role}</span>
           </h1>
           <div className="flex items-center justify-center gap-x-5 gap-y-2 flex-wrap">
             {status === "Available" ? (
@@ -77,6 +84,15 @@ const Banner = () => {
               </p>
             )}
             <ButtonLetsTalk />
+            <div className="flex items-center space-x-2">
+              <Switch
+                onCheckedChange={toggleLanguage}
+                checked={language === "pt"}
+              />
+              <Label htmlFor="language">
+                {language === "pt" ? "PT" : "EN"}
+              </Label>
+            </div>
           </div>
         </div>
       </MaxContainer>

@@ -7,12 +7,16 @@ import { ErrorCard } from "../cards/ErrorCard";
 import { ProjectCard } from "../cards/ProjectCard";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
+import { getText } from "@/utils/changeLanguage";
 
 const ProjectSection = () => {
+  const { language } = useLanguage();
+  const text = getText(language)
   const { isLoading, isError, projects } = useFetchOnlyTwoProjects()
   return (
     <MaxContainer className="flex flex-col lg:flex-row items-start gap-4 lg:gap-8 pt-10 lg:pt-20">
-      <Heading text="Projects" icon={ScrollText}/>
+      <Heading text={text.projects?.title} icon={ScrollText}/>
       <div className="flex-1 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {isLoading ? (
@@ -36,7 +40,7 @@ const ProjectSection = () => {
                 variant: "primary",
                 className: "border",
               })}>
-              View More Projects
+              {text.projects?.description}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>

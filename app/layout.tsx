@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const fontPoppins = Poppins({
   subsets: ["latin"],
@@ -43,7 +44,9 @@ export default function RootLayout({
         "min-h-screen font-sans antialiased flex flex-col flex-1",
         fontPoppins.variable
       )}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

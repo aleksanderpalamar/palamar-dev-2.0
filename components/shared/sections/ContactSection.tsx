@@ -3,11 +3,15 @@ import Heading from "../Heading";
 import MaxContainer from "../MaxContainer";
 import { links } from "@/lib/utils";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
+import { getText } from "@/utils/changeLanguage";
 
 const ContactSection = () => {
+  const { language } = useLanguage();
+  const text = getText(language)
   return (
     <MaxContainer className="flex flex-col lg:flex-row items-start gap-4 lg:gap-8 pt-10 lg:pt-20">
-      <Heading text="Contact" icon={PhoneCall} />
+      <Heading text={text.contact} icon={PhoneCall} />
       <div className="flex flex-col gap-2 flex-1 w-full">
         {links.map((link) => (
           <div key={link.path} className="flex items-center w-full gap-4">

@@ -9,22 +9,13 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import {
-  Switch,
-} from "@/components/ui/switch"
 import { Download } from "lucide-react";
-import { useState } from "react";
-import { Label } from "./label";
 import { getText } from "@/utils/changeLanguage";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const ButtonAboutMe = ({ lang }: { lang: string }) => {
-  const [language, setLanguage] = useState(lang);
-
-  const text = getText(language);
-
-  const toggleLanguage = () => {
-    setLanguage((prevLang) => (prevLang === "en" ? "pt" : "en"));
-  };
+  const { language } = useLanguage();
+  const text = getText(language)
 
   const handleDownload = () => {
     const a = document.createElement("a");
@@ -44,19 +35,10 @@ export const ButtonAboutMe = ({ lang }: { lang: string }) => {
             size="sm"
             className="self-start"
           >
-            More about me
+            {text.about?.more}
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[500px] w-full">
-          <div className="flex items-center space-x-2">            
-            <Switch
-              onCheckedChange={toggleLanguage}
-              checked={language === "pt"}
-            />
-            <Label htmlFor="language">
-              {language === "pt" ? "PT" : "EN"}
-            </Label>
-          </div>
           <DialogTitle asChild>
             <h2 className="text-lg font-semibold">
               {text.title}
