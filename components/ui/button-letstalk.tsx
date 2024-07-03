@@ -1,6 +1,6 @@
 "use client";
 import { FormEvent, useState } from "react";
-import { AtSign } from "lucide-react"
+import { AtSign, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -33,9 +33,9 @@ export const ButtonLetsTalk = () => {
           <Button
             variant="link"
             size="sm"
-          >
-            <AtSign className="w-3 h-3 mr-1.5" />
+          >            
             {text.banner?.contact}
+            <FaWhatsapp className="w-5 h-5 ml-1.5" />
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[500px] w-full">
