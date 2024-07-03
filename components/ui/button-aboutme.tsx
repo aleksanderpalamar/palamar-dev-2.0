@@ -9,7 +9,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { Download } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { getText } from "@/utils/changeLanguage";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -31,11 +31,12 @@ export const ButtonAboutMe = ({ lang }: { lang: string }) => {
       <Dialog>
         <DialogTrigger asChild>
           <Button
-            variant="link"
+            variant="primary"
             size="sm"
             className="self-start"
           >
             {text.about?.more}
+            <ArrowRight className="w-4 h-4 ml-1.5" />
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[500px] w-full">
