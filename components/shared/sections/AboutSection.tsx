@@ -46,7 +46,7 @@ const AboutSection = () => {
           My favorite technologies:
         </p>
         <Tags />
-        <ButtonAboutMe />
+        <ButtonAboutMe lang="en" />
       </div>
     </MaxContainer>
   )
