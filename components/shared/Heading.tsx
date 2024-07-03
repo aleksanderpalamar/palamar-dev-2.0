@@ -1,5 +1,5 @@
 interface HeadingProps {
-  text: string;
+  text: string | undefined;
   icon?: any;
   color?: string;
 }

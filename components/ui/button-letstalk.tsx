@@ -10,9 +10,14 @@ import {
 } from "@/components/ui/dialog";
 import { Textarea } from "./textarea";
 import { FaWhatsapp } from "react-icons/fa";
+import { useLanguage } from "@/context/LanguageContext";
+import { getText } from "@/utils/changeLanguage";
 
 export const ButtonLetsTalk = () => {
   const [message, setMessage] = useState("");
+  const { language } = useLanguage();
+
+  const text = getText(language)
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -30,7 +35,7 @@ export const ButtonLetsTalk = () => {
             size="sm"
           >
             <AtSign className="w-3 h-3 mr-1.5" />
-            Lets Talk
+            {text.banner?.contact}
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[500px] w-full">
@@ -43,7 +48,7 @@ export const ButtonLetsTalk = () => {
             <div className="mt-2 flex flex-col gap-2">
               <Textarea
                 name="message"
-                placeholder="Type your message here 👇"
+                placeholder={text.banner?.contactPlaceholder}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="w-full resize-none bg-transparent px-4 py-[1.3rem] 
@@ -57,7 +62,7 @@ export const ButtonLetsTalk = () => {
               >
                 <FaWhatsapp className="w-4 h-4 mr-1.5" />
                 <span className="hidden sm:block">
-                  Send
+                  {text.banner?.send}
                 </span>               
               </Button>
             </div>
