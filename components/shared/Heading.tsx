@@ -17,6 +17,7 @@ const Heading = (props: HeadingProps) => {
           className={`mr-2 ${
             props.color ? "w-3.5 h-3.5" : "w-4 h-4 lg:w-4 lg:h-4"
           }`}
+          aria-hidden="true"
         />
         {props.text}
       </p>

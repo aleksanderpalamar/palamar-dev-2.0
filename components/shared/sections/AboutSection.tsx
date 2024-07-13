@@ -44,9 +44,7 @@ const AboutSection = () => {
       <Heading text={text.about?.title} icon={Contact} />
       <div className="flex flex-col gap-3 flex-1">
         
-        <p className="italic text-xs md:text-sm leading-6 md:leading-7 font-bold text-muted-foreground border-l-2 border-violet-500 bg-violet-500/10 p-2">
-          {text.about?.phrase}
-        </p>
+        
         <p className="text-xs md:text-sm leading-6 md:leading-7 font-normal text-muted-foreground">
           {text.about?.description}
         </p>

@@ -4,6 +4,7 @@ interface Props {
 
 type Texts = {
   [key: string]: {
+    name?: string;
     title?: string;
     description?: string;
     banner?: {
@@ -32,6 +33,7 @@ type Texts = {
 export const getText = (lang: Props["lang"]) => {
   const texts = {
     pt: {
+      name: "Olá, eu sou PalamarDev 👋",
       title: "Sobre mim",
       description: `
               Eu sou um engenheiro de software e desenvolvedor full-stack.
@@ -47,7 +49,7 @@ export const getText = (lang: Props["lang"]) => {
               para o crescimento e sucesso da indústria.
             `,
       banner: {
-        role: "Desenvolvedor Full-Stack",
+        role: "Engenheiro de Software",
         contact: "Contato",
         contactPlaceholder: "Digite sua mensagem aqui 👇",
         send: "Enviar",
@@ -68,6 +70,7 @@ export const getText = (lang: Props["lang"]) => {
       contact: "Contato",
     },
     en: {
+      name: "Hello, I'm PalamarDev 👋",
       title: "About me",
       description: `
               I am a full-stack software engineer.
@@ -83,7 +86,7 @@ export const getText = (lang: Props["lang"]) => {
               to the growth and success of the industry.
             `,
       banner: {
-        role: "Full-Stack Software Engineer",
+        role: "Software Engineer",
         contact: "Lets Talk",
         contactPlaceholder: "Type your message here 👇",
         send: "Send",

@@ -64,11 +64,14 @@ const Banner = () => {
         </div>
         <div className="flex flex-col items-center lg:items-start gap-1 md:gap-2 flex-1">
           <h1 className="flex flex-col text-xl md:text-2xl font-semibold uppercase tracking-widest">
-            Aleksander Palamar
+            {text.name}
             <span
               className="text-xs text-muted-foreground font-semibold uppercase tracking-widest"
-            >{text.banner?.role}</span>
+            >{text.banner?.role}</span>            
           </h1>
+          <p className="italic text-xs md:text-sm leading-6 md:leading-7 font-bold text-muted-foreground border-l-2 border-violet-500 bg-violet-500/10 p-2">
+              {text.about?.phrase}
+            </p>
           <div className="flex items-center justify-center gap-x-5 gap-y-2 flex-wrap">
             {status === "Available" ? (
               <p className="flex items-center text-emerald-500 text-xs font-semibold uppercase tracking-widest">
