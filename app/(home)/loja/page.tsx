@@ -20,6 +20,7 @@ const Template = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {loja.map((item) => (
           <Link
+          key={item.name}
           href={`${item.url}`}
           className="border rounded-xl overflow-hidden shadow-2xl bg-secondary group p-3"
         >
