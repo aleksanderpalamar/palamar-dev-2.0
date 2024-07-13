@@ -14,11 +14,11 @@ const NotFound = () => {
       <div className="lg:flex flex-col gap-y-4">
         <div className="items-center gap-2 hidden lg:flex">
           <Image src="/images/favicon.png" width={40} height={40} alt="Mascot" />
-          <h1 className="text-2xl text-start font-extrabold text-emerald-500 tracking-wide">
+          <h1 className="text-2xl text-start font-extrabold text-violet-500 tracking-wide">
             PalamarDev
           </h1>
         </div>
-        <h1 className="text-9xl font-bold text-emerald-500 tracking-wide">404...</h1>
+        <h1 className="text-9xl font-bold text-violet-500 tracking-wide">404...</h1>
         <span className="text-white text-4xl font-semibold">
           I repeat, 404. Over!
         </span>
