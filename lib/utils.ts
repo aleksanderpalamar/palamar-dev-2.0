@@ -8,6 +8,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+export function absoluteUrl(path: string) {
+  return `${process.env.NEXT_PUBLIC_BASE_URL}${path}`
+}
+
 export const formatDateAndTime = (inputTime: any) => {
   // Parse the input time string
   const dateTime = new Date(inputTime);
@@ -91,3 +95,5 @@ export const links = [
     icon: FaXTwitter
   }
 ]
+
+
