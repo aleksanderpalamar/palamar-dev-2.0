@@ -13,7 +13,7 @@ const Preview = ({ url }: { url: any }) => {
           <Fullscreen className="w-5 h-5" />
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="h-full">
+      <AlertDialogContent className="sm:max-w-[1280px] h-full">
         <div className="w-full h-full relative">
           <AlertDialogCancel
             asChild

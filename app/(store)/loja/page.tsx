@@ -3,9 +3,10 @@ import MaxContainer from "@/components/shared/MaxContainer";
 import Image from "next/image";
 import Link from "next/link";
 
-import { loja } from "@/app/(home)/loja/utils/loja";
+import { loja } from "@/app/(store)/loja/utils/loja";
 
 const Template = () => {
+  const { image, url } = loja[0];
   return (
     <MaxContainer className="pb-12">
       <div className="flex items-center justify-between sticky top-0 z-10 py-6 bg-background">
@@ -13,21 +14,18 @@ const Template = () => {
       </div>
       <h1 className="text-3xl font-bold">
         Loja
-        <p className="text-sm text-muted-foreground mb-4">
-          Explore our templates and more.
-        </p>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {loja.map((item) => (
-          <Link
-          key={item.name}
-          href={`${item.url}`}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <Link
+          href={`${url}`}
           className="border rounded-xl overflow-hidden shadow-2xl bg-secondary group p-3"
+          title="Templates"
+          aria-label="Templates"
         >
           <div className="aspect-[1.5] overflow-hidden group bg-background rounded-xl border p-1.5">
             <div className="w-full h-full overflow-hidden rounded-lg">
               <Image
-                src={`${item.image}`}
+                src={`${image}`}
                 alt=""
                 priority
                 quality={100}
@@ -39,14 +37,10 @@ const Template = () => {
           </div>
           <div className="gap-1 flex flex-col mt-2.5">
             <h2 className="text-foreground font-medium text-sm line-clamp-1">
-              {item.name}
+              Templates
             </h2>
-            <p className="text-xs text-muted-foreground line-clamp-1">
-              {item.description}
-            </p>
           </div>
         </Link>
-        ))}
       </div>
     </MaxContainer>
   )

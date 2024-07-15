@@ -20,6 +20,7 @@
     "@radix-ui/react-switch": "^1.1.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.38.0",
+    "@stripe/stripe-js": "^4.1.0",
     "@types/puppeteer": "^7.0.4",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
@@ -36,6 +37,7 @@
     "remark-gfm": "^4.0.0",
     "sanity": "^3.38.0",
     "sharp": "^0.33.3",
+    "stripe": "^16.2.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
