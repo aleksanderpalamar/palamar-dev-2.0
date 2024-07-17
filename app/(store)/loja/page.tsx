@@ -3,10 +3,7 @@ import MaxContainer from "@/components/shared/MaxContainer";
 import Image from "next/image";
 import Link from "next/link";
 
-import { loja } from "@/app/(store)/loja/utils/loja";
-
-const Template = () => {
-  const { image, url } = loja[0];
+const Template = () => {  
   return (
     <MaxContainer className="pb-12">
       <div className="flex items-center justify-between sticky top-0 z-10 py-6 bg-background">
@@ -17,7 +14,7 @@ const Template = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         <Link
-          href={`${url}`}
+          href="/loja/templates"
           className="border rounded-xl overflow-hidden shadow-2xl bg-secondary group p-3"
           title="Templates"
           aria-label="Templates"
@@ -25,7 +22,7 @@ const Template = () => {
           <div className="aspect-[1.5] overflow-hidden group bg-background rounded-xl border p-1.5">
             <div className="w-full h-full overflow-hidden rounded-lg">
               <Image
-                src={`${image}`}
+                src="/placeholder.svg"
                 alt=""
                 priority
                 quality={100}
