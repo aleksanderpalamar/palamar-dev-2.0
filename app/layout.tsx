@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { Provider } from "react-wrap-balancer";
 
 const fontPoppins = Poppins({
   subsets: ["latin"],
@@ -45,7 +46,9 @@ export default function RootLayout({
         fontPoppins.variable
       )}>
         <LanguageProvider>
-          {children}
+          <Provider>
+            {children}
+          </Provider>
         </LanguageProvider>
       </body>
     </html>
