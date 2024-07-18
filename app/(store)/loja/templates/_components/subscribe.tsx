@@ -6,25 +6,30 @@ import axios from "axios"
 
 type SubscribeProps = {
   priceId?: string
-  price?: string
-  description?: string
+  templateId?: string
 }
 
-export const Subscribe = ({ priceId }: SubscribeProps) => {
+export const Subscribe = ({ priceId, templateId }: SubscribeProps) => {
   const handleSubmit = async () => {
-    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string);
-
+    const stripe = await loadStripe(
+      process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
+    );
     if (!stripe) {
       return;
     }
-
     try {
-      const res = await axios.post("/api/stripe/checkout", {
-        priceId: priceId,
+      const response = await axios.post('/api/stripe/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ priceId, templateId })
       });
-      const data = res.data;
-      if (!data.ok) throw new Error ("Something went wrong");
-      await stripe.redirectToCheckout({ sessionId: data.result.id });
+      const data = response.data;
+      if (!data.ok) throw new Error('Something went wrong');
+      await stripe.redirectToCheckout({
+        sessionId: data.result.id
+      });
     } catch (error) {
       console.log(error);
     }
