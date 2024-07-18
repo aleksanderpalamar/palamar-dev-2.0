@@ -1,34 +1,45 @@
-import Stripe from "stripe";
-import { NextRequest, NextResponse } from "next/server";
+import {NextRequest, NextResponse} from  "next/server";
+import {headers} from  "next/headers";
+import stripe from "@/lib/stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY! as string, {
-  apiVersion: "2024-06-20",
-  typescript: true,
-})
+type CartItem = {
+  name: string;
+  price: number;
+  quantity: number;
+  currency: string;
+};
 
-export async function POST(request: NextRequest) {
-  try {
-    const data = await request.json();
-    const priceId = data.priceId;
-    const checkoutSession = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        }
-      ],
-      mode: "payment",
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/loja/templates/success`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/loja/templates`,
-      metadata: {
-        template_id: data.templateId,
-        priceId
-      }
-    });
-    return NextResponse.json({ result: checkoutSession, ok: true });
-  } catch (error) {
-    console.log(error);
-    return new NextResponse(JSON.stringify(error), { status: 500 });
-  }
+
+export  async  function  POST(req: NextRequest, res: NextResponse) {
+const headersList = headers();
+const {cartDetails} = await req.json();
+const  cartDetailsArray: CartItem[] = Object.values(cartDetails) as  CartItem[];
+
+const lineItems = cartDetailsArray.map((item: CartItem) => {
+return {
+price_data: {
+currency: item.currency,
+product_data: {
+name: item.name,
+},
+unit_amount: item.price,
+},
+quantity: item.quantity,
+};
+});
+
+try {
+const session = await stripe.checkout.sessions.create({
+payment_method_types: ["card"],
+line_items: lineItems,
+mode: "payment",
+success_url: `${headersList.get("origin")}/loja/templates/success`,
+cancel_url: `${headersList.get("origin")}/loja/templates/`,
+});
+
+return  NextResponse.json({sessionId: session.id});
+} catch (err) {
+console.log(err)
+return  NextResponse.json({error: "Error creating checkout session"});
+}
 }
