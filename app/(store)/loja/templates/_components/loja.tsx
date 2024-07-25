@@ -3,20 +3,6 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Subscribe } from "./subscribe"
 
-type Loja = {
-  id?: number
-  name?: string
-  description?: string
-  image?: string
-  url?: string
-  tags?: string[]
-  category?: string
-  status?: string
-  price?: number
-}
-
-type LojaList = Pick<Loja, "id" | "name" | "image" | "description" | "tags" | "url" | "status" | "price">
-
 export const loja: LojaList[] = [
   {
     id: 1,
@@ -49,7 +35,10 @@ export const loja: LojaList[] = [
   }
 ];
 
-export const getLojaList = () => loja
+export function getLojaList() {
+  return loja
+}
+
 
 export const TemplateCards = ({ name, image, description, tags, status, price }: LojaList) => {
   return (

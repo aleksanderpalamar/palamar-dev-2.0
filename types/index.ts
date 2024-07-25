@@ -20,3 +20,17 @@ interface Articles {
   banner?: string;
   contents?: string[];
 }
+
+type Loja = {
+  id?: number
+  name?: string
+  description?: string
+  image?: string
+  url?: string
+  tags?: string[]
+  category?: string
+  status?: string
+  price?: number
+}
+
+type LojaList = Pick<Loja, "id" | "name" | "image" | "description" | "tags" | "url" | "status" | "price">

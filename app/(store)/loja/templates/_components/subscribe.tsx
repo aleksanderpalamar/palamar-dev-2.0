@@ -37,7 +37,6 @@ export const Subscribe = ({ priceId, templateId }: SubscribeProps) => {
   return (
     <Button
       variant="primary"
-      onClick={handleSubmit}
       className="w-[200px] text-violet-100 self-end mt-2"
     >
       Buy Template
