@@ -7,7 +7,6 @@ export default function LojaLayout({ children }: { children: React.ReactNode }) 
       <main className="flex flex-col flex-1">
         {children}
       </main>
-      <Footer />
     </div>
   )
 }

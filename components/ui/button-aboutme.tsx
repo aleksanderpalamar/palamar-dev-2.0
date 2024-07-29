@@ -13,6 +13,37 @@ import { ArrowRight, Download } from "lucide-react";
 import { getText } from "@/utils/changeLanguage";
 import { useLanguage } from "@/context/LanguageContext";
 
+const Tags = () => {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <span className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+        JavaScript
+      </span>
+      <span className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+        TypeScript
+      </span>
+      <span className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+        ReactJS
+      </span>
+      <span className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+        NextJS
+      </span>
+      <span className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+        TailwindCSS
+      </span>
+      <span className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+        NodeJS
+      </span>
+      <span className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+        Golang
+      </span>
+      <span className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">
+        Python
+      </span>
+    </div>
+  )
+}
+
 export const ButtonAboutMe = ({ lang }: { lang: string }) => {
   const { language } = useLanguage();
   const text = getText(language)
@@ -39,26 +70,36 @@ export const ButtonAboutMe = ({ lang }: { lang: string }) => {
             <ArrowRight className="w-4 h-4 ml-1.5" />
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[500px] w-full">
-          <DialogTitle asChild>
-            <h2 className="text-lg font-semibold">
-              {text.title}
-            </h2>
-          </DialogTitle>
-          <DialogDescription className="flex flex-col gap-2">
-            <p className="text-sm">{text.description}</p>
-          </DialogDescription>
-          <DialogFooter>
-            <Button
-              onClick={handleDownload}
-              variant="ghost" size="sm"
-            >
-              <Download className="mr-2 h-4 w-4"
-              />
-              {text.download}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
+        <div className="flex w-full p-4">
+          <DialogContent
+            className="sm:max-w-[800px] w-full p-0 border-[1px] border-violet-500 overflow-hidden">
+            <header className="w-full h-8 flex items-center justify-between bg-violet-500 p-2 object-cover">
+              <div className="flex items-center gap-x-2">
+                <div className="w-4 h-4 rounded-full bg-red-500" />
+                <div className="w-4 h-4 rounded-full bg-yellow-500" />
+                <div className="w-4 h-4 rounded-full bg-green-500" />
+              </div>
+              <p className="text-center text-sm uppercase">{text.about?.title}</p>
+            </header>
+            <DialogDescription className="flex flex-col gap-2 p-2">
+              <p className="text-sm">{text.description}</p>
+              <p className="text-xs md:text-sm leading-6 md:leading-7 font-normal text-muted-foreground">
+                {text.about?.description}
+              </p>
+              <Tags />
+            </DialogDescription>
+            <DialogFooter className="p-2">
+              <Button
+                onClick={handleDownload}
+                variant="ghost" size="sm"
+              >
+                <Download className="mr-2 h-4 w-4"
+                />
+                {text.download}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </div>
       </Dialog>
     </>
   )
