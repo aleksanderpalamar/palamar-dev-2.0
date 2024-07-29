@@ -12,8 +12,8 @@ const fontPoppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "PalamarDev",
-  description: "My portfolio",
+  title: "aleksanderpalamar.dev | Software Engineer | Portfolio",
+  description: "My personal portfolio and blog",
   keywords: [
     'Aleksander Palamar',
     'Desenvolvedor Web',

@@ -15,7 +15,7 @@ const ProjectSection = () => {
   const text = getText(language)
   const { isLoading, isError, projects } = useFetchOnlyTwoProjects()
   return (
-    <MaxContainer className="flex flex-col lg:flex-row items-start gap-4 lg:gap-8 pt-10 lg:pt-20">
+    <MaxContainer className="max-w-6xl flex flex-col lg:flex-row items-start gap-4 lg:gap-8 pt-10 lg:pt-20">
       <Heading text={text.projects?.title} icon={ScrollText}/>
       <div className="flex-1 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
