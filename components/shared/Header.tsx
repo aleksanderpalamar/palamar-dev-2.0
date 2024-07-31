@@ -12,7 +12,7 @@ const Header = () => {
   const { language, toggleLanguage } = useLanguage();
 
   return (
-    <header className="sticky top-0 z-50 shadow-sm h-full bg-zinc-950 w-full border-b border-zinc-800 p-2">
+    <header className="sticky top-0 z-50 shadow-sm h-full bg-background w-full border-b border-zinc-800 p-2">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center">
