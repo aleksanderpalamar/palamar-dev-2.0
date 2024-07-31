@@ -1,13 +1,17 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-  images: {
+  reactStrictMode: true,
+  swcMinify: true,
+  crossOrigin: "anonymous",
+  images: {   
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io', 
-        port: '',
-        pathname: '/**'
-      },
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/**"
+      }
     ]
   }
 };

@@ -1,8 +1,12 @@
+"use client";
+
 import { GoBack } from "@/components/shared/GoBack";
 import MaxContainer from "@/components/shared/MaxContainer";
-import { getLojaList, TemplateCards } from "./_components/loja";
 
-const TemplatePage = () => {  
+import products from "@/lib/products";
+import { TemplateCards } from "./_components/template-cards";
+
+const TemplatePage = () => {
   return (
     <MaxContainer className="pb-12">
       <div className="flex items-center justify-between sticky top-0 z-10 py-6 bg-background">
@@ -15,8 +19,8 @@ const TemplatePage = () => {
         </p>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {getLojaList().map((template) => (
-          <TemplateCards key={template.id} {...template} />
+        {products.map((product) => (
+          <TemplateCards key={product.id} product={product} />          
         ))}
       </div>
     </MaxContainer>

@@ -21,16 +21,9 @@ interface Articles {
   contents?: string[];
 }
 
-type Loja = {
-  id?: number
-  name?: string
-  description?: string
-  image?: string
-  url?: string
-  tags?: string[]
-  category?: string
-  status?: string
-  price?: number
+type Product = {
+  id: number
+  name: string
+  price: number
+  image: string
 }
-
-type LojaList = Pick<Loja, "id" | "name" | "image" | "description" | "tags" | "url" | "status" | "price">
