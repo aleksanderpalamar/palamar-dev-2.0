@@ -11,6 +11,18 @@ const products = [
     price: 12,
     image: "/placeholder.svg"
   },
+  {
+    id: 3,
+    name: "Template 3",
+    price: 12,
+    image: "/placeholder.svg"
+  },
+  {
+    id: 4,
+    name: "Template 4",
+    price: 12,
+    image: "/placeholder.svg"
+  },
 ];
 
 export default products
