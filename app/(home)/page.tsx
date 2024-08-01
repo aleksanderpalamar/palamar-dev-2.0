@@ -7,15 +7,11 @@ import ProjectSection from "@/components/shared/sections/ProjectSection";
 
 export default function Home() {
   return (
-    <div className="w-full">
-      <Header />
+    <div className="w-full">      
       <AboutSection />
       <ProjectSection />
       {/*<BlogSection />*/}
       {/*<ContactSection />*/}
-      <div className="p-2">
-        <Footer />
-      </div>
     </div>
   );
 }

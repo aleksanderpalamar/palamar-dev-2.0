@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Template = () => {  
   return (
-    <MaxContainer className="pb-12">
+    <MaxContainer className="pb-12 min-h-screen">
       <div className="flex items-center justify-between sticky top-0 z-10 py-6 bg-background">
         <GoBack route="/" />
       </div>
