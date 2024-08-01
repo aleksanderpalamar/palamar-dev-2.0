@@ -4,7 +4,7 @@ import { FaDev, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="max-w-6xl mx-auto border rounded-xl overflow-hidden shadow-2xl bg-secondary group p-3 mt-8">
+    <footer className="max-w-6xl w-full mx-auto border rounded-xl overflow-hidden shadow-2xl bg-secondary group p-3 mt-8">
       <div className="overflow-hidden group p-1.5 flex items-center justify-center space-x-4 border-b border-zinc-800">
         <Link href="https://github.com/aleksanderpalamar" target="_blank" className="flex items-center gap-2">
           <FaGithub className="w-8 h-8 mb-4 border-[1px] border-zinc-700 rounded-md p-1 hover:bg-zinc-700" />

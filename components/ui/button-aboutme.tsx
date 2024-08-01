@@ -12,6 +12,7 @@ import {
 import { ArrowRight, Download } from "lucide-react";
 import { getText } from "@/utils/changeLanguage";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 const Tags = () => {
   return (
@@ -82,7 +83,20 @@ export const ButtonAboutMe = ({ lang }: { lang: string }) => {
               <p className="text-center text-sm uppercase">{text.about?.title}</p>
             </header>
             <DialogDescription className="flex flex-col gap-2 p-2">
-              <p className="text-sm">{text.description}</p>
+              <div className="md:block lg:flex space-x-2 space-y-2">
+              <Image 
+                src="/images/avatar.jpg" 
+                width={1000} 
+                height={1000} 
+                alt="PalamarDev"
+                className="w-64 h-96 rounded-xl object-cover outline-double outline-2 outline-violet-500 border-4 border-transparent"
+                priority
+                quality={100}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+              <p className="text-sm text-justify">{text.description}</p>
+              </div>
+              
               <p className="text-xs md:text-sm leading-6 md:leading-7 font-normal text-muted-foreground">
                 {text.about?.description}
               </p>

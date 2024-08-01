@@ -4,6 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { Provider } from "react-wrap-balancer";
+import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
 
 const fontPoppins = Poppins({
   subsets: ["latin"],
@@ -47,7 +49,11 @@ export default function RootLayout({
       )}>
         <LanguageProvider>
           <Provider>
+            <Header />
             {children}
+            <div className="p-2">
+              <Footer />
+            </div>
           </Provider>
         </LanguageProvider>
       </body>

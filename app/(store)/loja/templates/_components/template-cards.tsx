@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/context/LanguageContext"
 import Image from "next/image"
 
 type Props = {
@@ -8,7 +9,8 @@ type Props = {
   product: Product
 }
 
-export const TemplateCards = ({ priceId, price, description, product }: Props) => {  
+export const TemplateCards = ({ priceId, price, description, product }: Props) => {
+  const { language } = useLanguage();  
   return (
     <div className="border rounded-xl overflow-hidden shadow-2xl bg-secondary group p-3">
       <div className="aspect-[1.5] overflow-hidden group bg-background rounded-xl border p-1.5">
@@ -35,7 +37,7 @@ export const TemplateCards = ({ priceId, price, description, product }: Props) =
         <Button
           className="bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded"
         >
-          Comprar
+          {language === "pt" ? "Comprar" : "Buy"}
         </Button>
       </div>
     </div>
