@@ -51,11 +51,11 @@ export const getText = (lang: Props["lang"]) => {
       },
       download: "Currículo (PDF)",
       role: "Desenvolvedor Full-Stack",
-      phrase: "Unindo design e código, sigo criando projetos únicos.",
+      phrase: "Sigo resolvendo problemas e impactando a vida das pessoas através do código.",
       about: {
         title: "Sobre mim",
         description: "Tecnologias favoritas",
-        phrase: "Unindo design e código, sigo criando projetos únicos.",
+        phrase: "Sigo resolvendo problemas e impactando a vida das pessoas através do código.",
         more: "Mais sobre mim"
       },
       projects: {
@@ -82,11 +82,11 @@ export const getText = (lang: Props["lang"]) => {
       },
       download: "Resume (PDF)",
       role: "Full-Stack Software Engineer",
-      phrase: "Combining design and code, I am creating unique projects.",
+      phrase: "I keep solving problems and impacting people's lives through code.",
       about: {
         title: "About me",
         description: "My Stacks favorites",
-        phrase: "Combining design and code, I am creating unique projects.",
+        phrase: "I keep solving problems and impacting people's lives through code.",
         more: "More about me"
       },
       projects: {
