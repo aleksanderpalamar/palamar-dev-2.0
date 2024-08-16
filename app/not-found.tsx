@@ -15,7 +15,7 @@ const NotFound = () => {
         <div className="items-center gap-2 hidden lg:flex">
           <Image src="/images/favicon.png" width={40} height={40} alt="Mascot" />
           <h1 className="text-2xl text-start font-extrabold text-violet-500 tracking-wide">
-            PalamarDev
+            Palamar
           </h1>
         </div>
         <h1 className="text-9xl font-bold text-violet-500 tracking-wide">404...</h1>

@@ -1,6 +1,4 @@
 import { ArrowRight, ScrollText } from "lucide-react";
-import Heading from "../Heading";
-import MaxContainer from "../MaxContainer";
 import { useFetchOnlyTwoProjects } from "@/hooks";
 import { LoadingProject } from "../LoadingProject";
 import { ErrorCard } from "../cards/ErrorCard";
@@ -15,8 +13,8 @@ const ProjectSection = () => {
   const text = getText(language)
   const { isLoading, isError, projects } = useFetchOnlyTwoProjects()
   return (
-    <MaxContainer className="max-w-6xl flex flex-col lg:flex-row items-start gap-4 lg:gap-8 pt-10 lg:pt-20">
-      <Heading text={text.projects?.title} icon={ScrollText}/>
+    <section className="bg-transparent py-16 px-4 max-w-6xl mx-auto rounded-lg">
+      <h2 className="text-2xl md:text-3xl font-semibold mb-6">{text.projects?.title}</h2>
       <div className="flex-1 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {isLoading ? (
@@ -46,7 +44,7 @@ const ProjectSection = () => {
           </div>
         )}
       </div>
-    </MaxContainer>
+    </section>
   )
 }
 
