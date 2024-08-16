@@ -6,10 +6,10 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { Provider } from "react-wrap-balancer";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { BackToTopButton } from "@/components/ui/back-to-top-button";
 
 const fontPoppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-poppins",
   weight: ["100", "200", "300", "400", "500", "600", "700"]
 });
 
@@ -44,16 +44,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(
-        "min-h-screen font-sans antialiased flex flex-col flex-1",
-        fontPoppins.variable
+        "bg-zinc-950 text-white",
+        fontPoppins.className
       )}>
         <LanguageProvider>
           <Provider>
             <Header />
             {children}
-            <div className="p-2">
-              <Footer />
-            </div>
+          <div className="py-16 px-2 max-w-6xl mx-auto rounded-lg">
+            <Footer />
+          </div>
+          <BackToTopButton />        
           </Provider>
         </LanguageProvider>
       </body>

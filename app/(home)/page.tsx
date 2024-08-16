@@ -1,17 +1,15 @@
 "use client";
 
-import Footer from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
 import AboutSection from "@/components/shared/sections/AboutSection";
+import { FormContact } from "@/components/shared/sections/FormContact";
 import ProjectSection from "@/components/shared/sections/ProjectSection";
 
 export default function Home() {
   return (
-    <div className="w-full">      
+    <div className="w-full px-2">
       <AboutSection />
       <ProjectSection />
-      {/*<BlogSection />*/}
-      {/*<ContactSection />*/}
+      <FormContact />
     </div>
   );
 }
