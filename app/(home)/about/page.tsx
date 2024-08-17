@@ -12,6 +12,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
+import { FormContact } from "@/components/shared/sections/FormContact";
 
 const Tags = () => {
   return (
@@ -58,61 +59,65 @@ const About = () => {
     document.body.removeChild(a);
   };
   return (
-    <div className="flex flex-col gap-4 p-2 items-center justify-center mt-8">
-      <div
-        className="max-w-6xl p-0 rounded-lg border-[1px] border-violet-500 overflow-hidden">
-        <header className="w-full h-8 flex items-center justify-between bg-violet-500 p-2 object-cover">
-          <div className="flex items-center gap-x-2">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link href="/">
-                    <div className="w-4 h-4 rounded-full bg-red-500" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{language === "pt" ? "Voltar" : "Go back"}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-            <div className="w-4 h-4 rounded-full bg-yellow-500" />
-            <div className="w-4 h-4 rounded-full bg-green-500" />
+    <>
+      <div className="flex flex-col gap-4 p-2 items-center justify-center mt-8">
+        <div
+          className="max-w-6xl p-0 rounded-lg border-[1px] border-secondary overflow-hidden">
+          <header className="w-full h-8 flex items-center justify-between bg-secondary p-2 object-cover">
+            <div className="flex items-center gap-x-2">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link href="/">
+                      <div className="w-4 h-4 rounded-full bg-red-500" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{language === "pt" ? "Voltar" : "Go back"}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <div className="w-4 h-4 rounded-full bg-yellow-500" />
+              <div className="w-4 h-4 rounded-full bg-green-500" />
 
-          </div>
-          <p className="text-center text-sm uppercase">{text.about?.title}</p>
-        </header>
-        <div className="flex flex-col gap-2 p-2">
-          <div className="md:block lg:flex space-x-2 space-y-2">
-            <Image
-              src="/images/avatar.jpg"
-              width={1000}
-              height={1000}
-              alt="PalamarDev"
-              className="w-64 h-96 rounded-xl object-cover outline-double outline-2 outline-violet-500 border-4 border-transparent"
-              priority
-              quality={100}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-            <p className="text-sm text-justify">{text.description}</p>
-          </div>
+            </div>
+            <p className="text-center text-sm uppercase">{text.about?.title}</p>
+          </header>
+          <div className="flex flex-col gap-2 p-2">
+            <div className="md:block lg:flex space-x-2 space-y-2">
+              <Image
+                src="/images/avatar.jpg"
+                width={1000}
+                height={1000}
+                alt="PalamarDev"
+                className="w-64 h-96 rounded-xl object-cover outline-double outline-2 outline-violet-500 border-4 border-transparent"
+                priority
+                quality={100}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+              <p className="text-sm text-justify">{text.description}</p>
+            </div>
 
-          <p className="text-xs md:text-sm leading-6 md:leading-7 font-normal text-muted-foreground">
-            {text.about?.description}
-          </p>
-          <Tags />
-        </div>
-        <div className="p-2">
-          <Button
-            onClick={handleDownload}
-            variant="ghost" size="sm"
-          >
-            <Download className="mr-2 h-4 w-4"
-            />
-            {text.download}
-          </Button>
+            <p className="text-xs md:text-sm leading-6 md:leading-7 font-normal text-muted-foreground">
+              {text.about?.description}
+            </p>
+            <Tags />
+          </div>
+          <div className="p-2">
+            <Button
+              onClick={handleDownload}
+              variant="ghost" size="sm"
+            >
+              <Download className="mr-2 h-4 w-4"
+              />
+              {text.download}
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+
+      <FormContact />
+    </>
   )
 }
 
