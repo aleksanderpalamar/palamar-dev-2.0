@@ -7,6 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { getText } from "@/utils/changeLanguage";
 import Image from "next/image";
 import NavigationMenu from "./navigation-Menu";
+import Link from "next/link";
 
 const Header = () => {
   const { isMobile } = useIsMobile();
@@ -17,7 +18,9 @@ const Header = () => {
   return (
     <header className="bg-zinc-950 shadow-md py-4 text-white border-b border-zinc-800">
       <div className="container px-4 justify-between items-center max-w-6xl mx-auto flex">
-        <div className="flex items-center gap-4 max-w-6xl">
+        <Link 
+          href="/"
+          className="flex items-center gap-4 max-w-6xl">
           <Image
             src="/images/favicon.png"
             width={100}
@@ -27,8 +30,8 @@ const Header = () => {
             quality={100}
             alt="Logo"
           />
-          <h1 className="text-2xl font-bold">Palamar</h1>
-        </div>
+          <h1 className="text-2xl font-bold hidden lg:flex">Palamar</h1>
+        </Link>
         <NavigationMenu />
       </div>
     </header>

@@ -42,11 +42,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body className={cn(
         "bg-zinc-950 text-white",
         fontPoppins.className
-      )}>
+      )} suppressHydrationWarning>
         <LanguageProvider>
           <Provider>
             <Header />

@@ -5,14 +5,16 @@ import { ProjectCard } from "@/components/shared/cards/ProjectCard";
 import { GoBack } from "@/components/shared/GoBack";
 import { LoadingProject } from "@/components/shared/LoadingProject";
 import MaxContainer from "@/components/shared/MaxContainer";
+import { useLanguage } from "@/context/LanguageContext";
 import { useFetchAllProjects } from "@/hooks";
 import { Loader, Loader2, ScrollText } from "lucide-react";
 
 const ProjectsPage = () => {
   const { isLoading, isError, projects } = useFetchAllProjects()
+  const {language} = useLanguage()
   return (
     <MaxContainer className="pb-12">
-      <div className="flex items-center justify-between sticky top-0 z-10 py-6 bg-background">
+      <div className="flex items-center justify-between top-0 z-10 py-6 bg-background">
         <GoBack route="/" />
         {isLoading ? (
           <p className="text-xs md:text-sm font-bold tracking-widest uppercase">
@@ -21,7 +23,7 @@ const ProjectsPage = () => {
         ) : (
           <p className="text-xs md:text-sm uppercase text-muted-foreground flex font-semibold items-center gap-1.5">
             <ScrollText className="w-4 h-4" />
-            Total Projects:
+            {language === "pt" ? "Total de projetos" : "Total Projects"}
             <span className="text-foreground font-bold tracking-widest">
               {projects.length}
             </span>
