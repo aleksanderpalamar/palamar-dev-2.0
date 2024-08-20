@@ -1,3 +1,5 @@
+"use client";
+
 import {
   NavigationMenu as NavigationMenuPrimitive,
   NavigationMenuContent,
@@ -10,10 +12,32 @@ import { Switch } from "../ui/switch";
 import { Label } from "../ui/label";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
+import { useEffect } from "react";
 
 
 const NavigationMenu = () => {
   const { language, toggleLanguage } = useLanguage();
+
+  useEffect(() => {
+    const handleSmoothScroll = (event: Event) => {
+      event.preventDefault();
+      const target = document.getElementById("contact");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    const contactLink = document.querySelector('a[href="#contact"]');
+    if (contactLink) {
+      contactLink.addEventListener("click", handleSmoothScroll);
+    }
+
+    return () => {
+      if (contactLink) {
+        contactLink.removeEventListener("click", handleSmoothScroll);
+      }
+    };
+  }, []);
 
   return (
     <NavigationMenuPrimitive>
@@ -31,12 +55,11 @@ const NavigationMenu = () => {
                     hover:bg-accent hover:text-accent-foreground p-2 rounded-md"
                     href="/about"
                   >
-
                     <div className="mb-2 mt-4 text-lg font-medium">
                       {language === "en" ? "About me" : "Sobre mim"}
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      {language === "en" ? "Get to know a little more about me." : "Conheça um pouco mais sobre mim."}
+                      {language === "en" ? "Get to know a little more about me." : "Conheça um pouco mais sobre mim."}
                     </p>
                   </Link>
                 </NavigationMenuLink>
@@ -66,7 +89,11 @@ const NavigationMenu = () => {
         px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent 
         focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 
         data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-          
+          <NavigationMenuLink asChild>
+            <Link href="#contact" className="no-underline">
+              {language === "en" ? "Contact" : "Contato"}
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
       <div className="flex items-center space-x-2">
@@ -79,7 +106,7 @@ const NavigationMenu = () => {
         </Label>
       </div>
     </NavigationMenuPrimitive>
-  )
-}
+  );
+};
 
 export default NavigationMenu

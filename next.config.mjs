@@ -11,6 +11,12 @@ const nextConfig = {
         hostname: "cdn.sanity.io",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "media.dev.to",
+        port: "",
+        pathname: "/**"
       }
     ]
   }

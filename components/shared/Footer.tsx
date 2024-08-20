@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import { FaDev, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaDev, FaInstagram, FaLinkedin, FaSteam, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -15,8 +15,14 @@ const Footer = () => {
         <Link href="https://www.linkedin.com/in/aleksanderpalamar" target="_blank" className="flex items-center gap-2">
           <FaLinkedin className="w-8 h-8 mb-4 border-[1px] border-zinc-700 rounded-md p-1 hover:bg-zinc-700" />
         </Link>
-        <Link href="https://x.com/Palamar_Dev_" target="_blank" className="flex items-center gap-2">
+        <Link href="" target="_blank" className="flex items-center gap-2">
           <FaXTwitter className="w-8 h-8 mb-4 border-[1px] border-zinc-700 rounded-md p-1 hover:bg-zinc-700" />
+        </Link>
+        <Link href="" target="_blank" className="flex items-center gap-2">
+          <FaYoutube className="w-8 h-8 mb-4 border-[1px] border-zinc-700 rounded-md p-1 hover:bg-zinc-700" />
+        </Link>
+        <Link href="" target="_blank" className="flex items-center gap-2">
+          <FaInstagram className="w-8 h-8 mb-4 border-[1px] border-zinc-700 rounded-md p-1 hover:bg-zinc-700" />
         </Link>
       </div>
       <p className="text-center text-xs mt-4">© 2024 Aleksander Palamar. All rights reserved.</p>

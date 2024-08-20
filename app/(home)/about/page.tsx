@@ -13,6 +13,7 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 import { FormContact } from "@/components/shared/sections/FormContact";
+import { useEffect, useState } from "react";
 
 const Tags = () => {
   return (
@@ -48,6 +49,15 @@ const Tags = () => {
 const About = () => {
   const { language } = useLanguage();
   const text = getText(language)
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   const handleDownload = () => {
     const a = document.createElement("a");
@@ -90,7 +100,7 @@ const About = () => {
                 width={1000}
                 height={1000}
                 alt="PalamarDev"
-                className="w-64 h-96 rounded-xl object-cover outline-double outline-2 outline-violet-500 border-4 border-transparent"
+                className="w-64 h-96 rounded-xl object-cover outline-double outline-2 outline-violet-500 border-4 border-transparent hidden lg:flex"
                 priority
                 quality={100}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
