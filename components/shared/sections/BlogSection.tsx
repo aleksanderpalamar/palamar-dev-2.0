@@ -1,28 +1,29 @@
-import Link from "next/link";
-import { FaBookReader } from "react-icons/fa";
-import { ArrowRight } from "lucide-react";
+"use client";
 
-import Heading from "../Heading";
-import MaxContainer from "../MaxContainer";
+
 import { ErrorCard } from "../cards/ErrorCard";
 import { ArticleCard } from "../cards/BlogCard";
 import { LoadingProject } from "../LoadingProject";
-import { buttonVariants } from "@/components/ui/button";
 
 import { useFetchOnlyOneArticle } from "@/hooks";
+import { useLanguage } from "@/context/LanguageContext";
 
 const BlogSection = () => {
+  const { language } = useLanguage();
   const { isLoading, isError, articles } = useFetchOnlyOneArticle()
+
   return (
-    <MaxContainer className="flex flex-col lg:flex-row items-start gap-4 lg:gap-8 pt-10 lg:pt-20">
-      <Heading text="Latest Updates" icon={FaBookReader} />
+    <section className="bg-transparent py-16 px-4 max-w-6xl mx-auto rounded-lg">
+      <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+        {language === "pt" ? "Artigos" : "Articles"}
+      </h2>
       <div className="flex-1 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {isLoading ? (
             Array.from({ length: 2 }).map((_, _key) => (
               <LoadingProject key={_key} />
             ))
-          ) : isError ? (
+          ) ? isError : (
             <ErrorCard message={isError} />
           ) : (
             articles.map((article: any) => (
@@ -30,22 +31,8 @@ const BlogSection = () => {
             ))
           )}
         </div>
-        {!isLoading && (
-          <div className="flex justify-end mt-4">
-            <Link
-              href="/articles"
-              className={buttonVariants({
-                size: "sm",
-                variant: "primary",
-                className: "border",
-              })}>
-              View More Articles
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </div>
-        )}
       </div>
-    </MaxContainer>
+    </section>
   )
 }
 
