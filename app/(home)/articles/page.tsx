@@ -1,6 +1,6 @@
 "use client";
 
-import { ArticleCard } from "@/components/shared/cards/BlogCard";
+import { ArticleCard } from "@/components/shared/cards/ArticleCard";
 import { ErrorCard } from "@/components/shared/cards/ErrorCard";
 import { GoBack } from "@/components/shared/GoBack";
 import { LoadingProject } from "@/components/shared/LoadingProject";
