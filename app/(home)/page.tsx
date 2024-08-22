@@ -10,7 +10,6 @@ export default function Home() {
     <div className="w-full px-2">
       <AboutSection />
       <ProjectSection />
-      <BlogSection />
       <FormContact />
     </div>
   );
