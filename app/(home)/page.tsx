@@ -11,6 +11,6 @@ export default function Home() {
       <AboutSection />
       <ProjectSection />
       <FormContact />
-    </div>
+    </div> 
   );
 }
