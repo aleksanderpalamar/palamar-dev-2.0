@@ -22,9 +22,6 @@ const Footer = () => {
         <Link href="https://www.threads.net/@palamar.dev" target="_blank" className="flex items-center gap-2">
           <FaThreads className="w-8 h-8 mb-4 border-[1px] border-zinc-700 rounded-md p-1 hover:bg-zinc-700" />
         </Link>
-        <Link href="https://www.hackerrank.com/profile/palamar_dev" target="_blank" className="flex items-center gap-2">
-          <FaHackerrank className="w-8 h-8 mb-4 border-[1px] border-zinc-700 rounded-md p-1 hover:bg-zinc-700" />
-        </Link>
       </div>
       <p className="text-center text-xs mt-4">© 2024 Aleksander Palamar. All rights reserved.</p>
     </footer>
