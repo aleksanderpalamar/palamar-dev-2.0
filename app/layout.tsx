@@ -43,6 +43,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" >
+      <head>
+        <link rel="me" href="https://mastodon.social/@aleksander_palamar"/>
+      </head>
       <body className={cn(
         "bg-zinc-950 text-white",
         fontPoppins.className
